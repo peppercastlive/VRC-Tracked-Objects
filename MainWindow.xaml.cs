@@ -183,7 +183,7 @@ namespace VRC_OSC_ExternallyTrackedObject
             this.OscManager.AvatarChanged += OnAvatarChanged;
             this.OscManager.TrackingActiveChanged += OnTrackingActiveChanged;
             this.OscManager.ThreadCrashed += OnOscThreadCrashed;
-            
+            InitializePeppercast();
         }
 
         public bool Init()
@@ -898,6 +898,11 @@ namespace VRC_OSC_ExternallyTrackedObject
         private double FixZero(double input)
         {
             return (input < 0.00001 && input > -0.00001) ? 0 : input;
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

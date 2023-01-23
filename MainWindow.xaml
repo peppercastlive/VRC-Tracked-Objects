@@ -41,7 +41,7 @@
                 </StackPanel>
             </GroupBox>
             <ComboBox DockPanel.Dock="Top" Margin="5,5,5,5" DisplayMemberPath="DisplayName" SelectedValuePath="Id" x:Name="AvatarDropdown" SelectionChanged="AvatarDropdown_SelectionChanged" />
-            <TabControl>
+            <TabControl SelectionChanged="TabControl_SelectionChanged">
                 <TabItem Header="Tracking" x:Name="TrackingTab">
                     <StackPanel>
                         <GroupBox Header="Parameters">
@@ -94,6 +94,19 @@
                             </StackPanel>
                         </GroupBox>
                     </StackPanel>
+                </TabItem>
+                
+                <TabItem Header="Peppercast Camera Rig" x:Name="CameraRigTab">
+                    <GroupBox Header="Rig Offsets" x:Name="CameraRigGroupBox">
+                        <StackPanel>
+                            <Label Content="Axis 1 Position" ></Label>
+                            <Slider Minimum="-1" Maximum="1" ValueChanged="Axis1PositionSliderChange"></Slider>
+                            <Label Content="Axis 1 Rotation"></Label>
+                            <Slider Minimum="-1" Maximum="1"></Slider>
+                            <Label Content="Axis 2 Position"></Label>
+                            <Slider Minimum="-1" Maximum="1"></Slider>
+                        </StackPanel>
+                    </GroupBox>
                 </TabItem>
             </TabControl>
         </DockPanel>
