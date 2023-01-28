@@ -37,6 +37,20 @@ namespace VRC_OSC_ExternallyTrackedObject
         public EventHandler? AvatarChanged;
         public EventHandler? ThreadCrashed;
 
+        #region Peppercast Properties
+
+        /// <summary>
+        /// Allows public access of the the OscSender.
+        /// </summary>
+        public OscSender? OSCSender => oscSender;
+
+        /// <summary>
+        /// Allows public access to the avatar ID.
+        /// </summary>
+        public string CurrentAvatarID => currentAvatar; // Not actual plans for this. Just thought it could be useful sometime down the line.
+
+        #endregion Peppercast Properties
+
         public void Start(string inputAddress, int inputPort, string outputAddress, int outputPort, Dictionary<string, AvatarConfig> config)
         {
             if (oscSender == null)

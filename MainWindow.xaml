@@ -99,12 +99,19 @@
                 <TabItem Header="Peppercast Camera Rig" x:Name="CameraRigTab">
                     <GroupBox Header="Rig Offsets" x:Name="CameraRigGroupBox">
                         <StackPanel>
-                            <Label Content="Axis 1 Position" ></Label>
-                            <Slider Minimum="-1" Maximum="1" ValueChanged="Axis1PositionSliderChange"></Slider>
-                            <Label Content="Axis 1 Rotation"></Label>
-                            <Slider Minimum="-1" Maximum="1"></Slider>
-                            <Label Content="Axis 2 Position"></Label>
-                            <Slider Minimum="-1" Maximum="1"></Slider>
+                            <Label Content="Axis 1 Position:" x:Name="axis1PosLabel"></Label>
+
+                            <Slider Minimum="-1" Maximum="1" ValueChanged="Axis1PositionSliderChange" x:Name="axis1PositionSlider"></Slider>
+                            <Button Margin="0, 5, 0, 0" x:Name="axis1PositionReset" Content="Reset Axis 1 Position" Click="ResetAxis1Position"></Button>
+                            <Label Content="Axis 1 Rotation" x:Name="axis1RotLabel"></Label>
+                            <Slider Minimum="-1" Maximum="1" ValueChanged="Axis1RotationSliderChange" x:Name="axis1RotationSlider"></Slider>
+                            <Button Margin="0, 5, 0,0" x:Name="axis1RotationReset" Content="Reset Axis 1 Rotation" Click="ResetAxis1Rotation"></Button>
+                            <Label Content="Axis 2 Position" x:Name="axis2PosLabel"></Label>
+                            <Slider Minimum="-1" Maximum="1" ValueChanged="Axis2PositionSliderChange" Name="axis2PositionSlider"></Slider>
+                            <Button Margin="0, 5, 0, 0" x:Name="axis2PositionReset" Content="Reset Axis 2 Position" Click="ResetAxis2Position"></Button>
+
+                            <Button Margin="0, 10, 0, 0" x:Name="reloadConfigButton" Content="Reload Rig Configuration" Click="ReloadRigConfiguration"></Button>
+                            <Button Margin="0, 5, 0, 0" Content="Save Configuration" x:Name="rigOffsetSaveButton" Click="rigOffsetSaveButtonClick"></Button>
                         </StackPanel>
                     </GroupBox>
                 </TabItem>
