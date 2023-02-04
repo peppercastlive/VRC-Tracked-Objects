@@ -99,8 +99,11 @@
                 <TabItem Header="Peppercast Camera Rig" x:Name="CameraRigTab">
                     <GroupBox Header="Rig Offsets" x:Name="CameraRigGroupBox">
                         <StackPanel>
+                            <Label Content="Tracker Rotation:" x:Name="trackerRotationLabel"></Label>
+                            <Slider Minimum="-1" Maximum="1" x:Name="trackerRotationSlider" ValueChanged="trackerRotationSlider_ValueChanged"></Slider>
+                            <Button Margin="0, 5, 0, 0" x:Name="trackerRotationReset" Content="Reset Tracker Rotation" Click="trackerRotationReset_Click"></Button>
+                            
                             <Label Content="Axis 1 Position:" x:Name="axis1PosLabel"></Label>
-
                             <Slider Minimum="-1" Maximum="1" ValueChanged="Axis1PositionSliderChange" x:Name="axis1PositionSlider"></Slider>
                             <Button Margin="0, 5, 0, 0" x:Name="axis1PositionReset" Content="Reset Axis 1 Position" Click="ResetAxis1Position"></Button>
                             <Label Content="Axis 1 Rotation" x:Name="axis1RotLabel"></Label>

@@ -112,5 +112,17 @@ namespace VRC_OSC_ExternallyTrackedObject
             axis1RotationSlider.Value = _peppercastManager.Axis1Rotation;
             axis2PositionSlider.Value = _peppercastManager.Axis2Position;
         }
+
+        private void trackerRotationSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            _peppercastManager.TrackerRotation = (float)e.NewValue;
+            axis1PosLabel.Content = string.Format("Tracker Rotation: {0}", _peppercastManager.TrackerRotation.ToString("0.00"));
+        }
+
+        private void trackerRotationReset_Click(object sender, RoutedEventArgs e)
+        {
+            trackerRotationSlider.Value = 0f;
+            _peppercastManager.TrackerRotation = 0f;
+        }
     }
 }
