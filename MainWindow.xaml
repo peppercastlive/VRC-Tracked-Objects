@@ -106,9 +106,9 @@
                             <Label Content="Lens Height:" x:Name="axis1PosLabel"></Label>
                             <Slider Minimum="-1" Maximum="1" ValueChanged="Axis1PositionSliderChange" x:Name="axis1PositionSlider"></Slider>
                             <Button Margin="0, 5, 0, 0" x:Name="axis1PositionReset" Content="Reset Lens Height" Click="ResetAxis1Position"></Button>
-                            <Label Content="Lens Pupil" x:Name="axis2PosLabel"></Label>
+                            <Label Content="Entrance Pupil" x:Name="axis2PosLabel"></Label>
                             <Slider Minimum="-1" Maximum="1" ValueChanged="Axis2PositionSliderChange" Name="axis2PositionSlider"></Slider>
-                            <Button Margin="0, 5, 0, 0" x:Name="axis2PositionReset" Content="Reset Lens Pupil" Click="ResetAxis2Position"></Button>
+                            <Button Margin="0, 5, 0, 0" x:Name="axis2PositionReset" Content="Reset Entrance Pupil" Click="ResetAxis2Position"></Button>
 
                             <Button Margin="0, 10, 0, 0" x:Name="reloadConfigButton" Content="Reload Rig Configuration" Click="ReloadRigConfiguration"></Button>
                             <Button Margin="0, 5, 0, 0" Content="Save Configuration" x:Name="rigOffsetSaveButton" Click="rigOffsetSaveButtonClick"></Button>
