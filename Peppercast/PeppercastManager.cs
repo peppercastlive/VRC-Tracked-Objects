@@ -20,12 +20,11 @@ namespace VRC_OSC_ExternallyTrackedObject.Peppercast
 
         public static string ConfigPath => Path.Join(Environment.CurrentDirectory, FOLDER, CONFIGFILE);
 
-        public PeppercastManager(OscManager? oscManager, float trackerRotation, float axis1Position, float axis1Rotation, float axis2Position)
+        public PeppercastManager(OscManager? oscManager, float trackerRotation, float axis1Position, float axis2Position)
         {
             this._oscManager = oscManager;
             this._trackerRotation = trackerRotation;
             this._axis1Position = axis1Position;
-            this._axis1Rotation = axis1Rotation;
             this._axis2Position = axis2Position;
         }
 
@@ -34,7 +33,6 @@ namespace VRC_OSC_ExternallyTrackedObject.Peppercast
             this._oscManager = oscManager;
             this._trackerRotation = 0f;
             this._axis1Position = 0f;
-            this._axis1Rotation = 0f;
             this._axis2Position = 0f;
         }
 
@@ -42,7 +40,6 @@ namespace VRC_OSC_ExternallyTrackedObject.Peppercast
 
         private float _trackerRotation;
         private float _axis1Position;
-        private float _axis1Rotation;
         private float _axis2Position;
 
         public float TrackerRotation
@@ -71,20 +68,6 @@ namespace VRC_OSC_ExternallyTrackedObject.Peppercast
         }
 
         /// <summary>
-        /// The rotation on the y rotation of the the first axis object.
-        /// </summary>
-        public float Axis1Rotation
-        {
-            get => _axis1Rotation;
-
-            set
-            {
-                _axis1Rotation = value.Clamp(-1f, 1f); // Clamps the float between two values, a minimum and a maximum value.
-                _oscManager?.SendAvatarParameter(AXIS1ROTATION, _axis1Rotation); // Sends the value of the offset to the avatar using the OscManager object.
-            }
-        }
-
-        /// <summary>
         /// The axis from the first axis to the second axis on the z translation.
         /// </summary>
         public float Axis2Position
@@ -107,7 +90,6 @@ namespace VRC_OSC_ExternallyTrackedObject.Peppercast
 
             jObj.Add("TrackerRotation", TrackerRotation); // Adds "TrackerRotation" value to the JsonObject.
             jObj.Add("Axis1Position", Axis1Position); // Adds "Axis1Position" value to the JsonObject.
-            jObj.Add("Axis1Rotation", Axis1Rotation); // Adds "Axis1Rotation" value to the JsonObject.
             jObj.Add("Axis2Position", Axis2Position); // Adds "Axis2Position" value to the JsonObject.
 
             var json = jObj.ToString(); // Grabs the Json string and stores it in a value.
@@ -141,7 +123,6 @@ namespace VRC_OSC_ExternallyTrackedObject.Peppercast
 
             TrackerRotation = trackerRot; // Saves the "TrackerRotation" variable and stores it into the "TrackerRotation" property in the object.
             Axis1Position = axis1Pos; // Saves the "Axis1Position" variable and stores it into the "Axis1Position" property in the object.
-            Axis1Rotation = axis1Rot; // Saves the "Axis1Rotation" variable and stores it into the "Axis1Rotation" property in the object.
             Axis2Position = axis2Pos; // Saves the "Axis2Position" variable and stores it into the "axis2Position" property in the object.
         }
 
@@ -179,10 +160,9 @@ namespace VRC_OSC_ExternallyTrackedObject.Peppercast
 
             var trackerRotation = jObj.GetValue("TrackerRotation").Value<float>(); // Stores the value of "TrackerRotation" into the variable.
             var axis1Pos = jObj.GetValue("Axis1Position").Value<float>(); // Stores the value of "Axis1Position" into a variable.
-            var axis1Rot = jObj.GetValue("Axis1Rotation").Value<float>(); // Stores the value of "Axis1Rotation" into a variable.
             var axis2Pos = jObj.GetValue("Axis2Position").Value<float>(); // Stores the value of "Axis2Position" into a variable.
 
-            return new PeppercastManager(oscManager, trackerRotation, axis1Pos, axis1Rot, axis2Pos); // Returns a "PeppercastManager" object using the previously stored variables. 
+            return new PeppercastManager(oscManager, trackerRotation, axis1Pos, axis2Pos); // Returns a "PeppercastManager" object using the previously stored variables. 
         }
     }
 }

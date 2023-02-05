@@ -27,11 +27,11 @@ namespace VRC_OSC_ExternallyTrackedObject
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Axis1RotationSliderChange(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            _peppercastManager.Axis1Rotation = (float)e.NewValue;
-            axis1RotLabel.Content = string.Format("Axis 1 Rotation: {0}", _peppercastManager.Axis1Rotation.ToString("0.00"));
-        }
+        //private void Axis1RotationSliderChange(object sender, RoutedPropertyChangedEventArgs<double> e)
+        //{
+        //    _peppercastManager.Axis1Rotation = (float)e.NewValue;
+        //    axis1RotLabel.Content = string.Format("Axis 1 Rotation: {0}", _peppercastManager.Axis1Rotation.ToString("0.00"));
+        //}
 
         /// <summary>
         /// The method that's called when the axis 2 position slider value changes.
@@ -70,11 +70,11 @@ namespace VRC_OSC_ExternallyTrackedObject
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ResetAxis1Rotation(object sender, RoutedEventArgs e)
-        {
-            axis1RotationSlider.Value = 0f;
-            _peppercastManager.Axis1Rotation = 0f;
-        }
+        //private void ResetAxis1Rotation(object sender, RoutedEventArgs e)
+        //{
+        //    axis1RotationSlider.Value = 0f;
+        //    _peppercastManager.Axis1Rotation = 0f;
+        //}
 
         /// <summary>
         /// Sets the value of the "axis2PositionSlider" to 0, then updates the value within the "PeppercastManager" object.
@@ -95,7 +95,7 @@ namespace VRC_OSC_ExternallyTrackedObject
             _peppercastManager = PeppercastManager.Initialize(OscManager);
 
             axis1PositionSlider.Value = _peppercastManager.Axis1Position;
-            axis1RotationSlider.Value = _peppercastManager.Axis1Rotation;
+            //axis1RotationSlider.Value = _peppercastManager.Axis1Rotation;
             axis2PositionSlider.Value = _peppercastManager.Axis2Position;
         }
 
@@ -109,7 +109,7 @@ namespace VRC_OSC_ExternallyTrackedObject
             _peppercastManager.ReloadRigInfo();
 
             axis1PositionSlider.Value = _peppercastManager.Axis1Position;
-            axis1RotationSlider.Value = _peppercastManager.Axis1Rotation;
+            //axis1RotationSlider.Value = _peppercastManager.Axis1Rotation;
             axis2PositionSlider.Value = _peppercastManager.Axis2Position;
         }
 
