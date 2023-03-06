@@ -116,10 +116,10 @@ namespace VRC_OSC_ExternallyTrackedObject.Peppercast
 
             var jObj = (JObject)JsonConvert.DeserializeObject(json); // Deserializes the json string and turns it into a JsonObject.
 
-            var trackerRot = jObj.GetValue("TrackerRotation").Value<float>(); // Extracts the "TrackerRotation" value and stores it in a variable.
-            var axis1Pos = jObj.GetValue("Axis1Position").Value<float>(); // Extracts the "Axis1Position" value and stores it in a variable.
-            var axis1Rot = jObj.GetValue("Axis1Rotation").Value<float>(); // Extracts the "Axis1Rotation" value and stores it in a variable.
-            var axis2Pos = jObj.GetValue("Axis2Position").Value<float>(); // Extracts the "Axis2Position" value and stores it in a variable.
+
+            var trackerRot = jObj.GetValueOrDefault("TrackerRotation", 0f);
+            var axis1Pos = jObj.GetValueOrDefault("Axis1Position", 0f);
+            var axis2Pos = jObj.GetValueOrDefault("Axis2Position", 0f);
 
             TrackerRotation = trackerRot; // Saves the "TrackerRotation" variable and stores it into the "TrackerRotation" property in the object.
             Axis1Position = axis1Pos; // Saves the "Axis1Position" variable and stores it into the "Axis1Position" property in the object.
@@ -158,9 +158,9 @@ namespace VRC_OSC_ExternallyTrackedObject.Peppercast
 
             var jObj = (JObject)JsonConvert.DeserializeObject(json); // Parses the json string to deserialize the "PeppercastManager" object into a JsonObject.
 
-            var trackerRotation = jObj.GetValue("TrackerRotation").Value<float>(); // Stores the value of "TrackerRotation" into the variable.
-            var axis1Pos = jObj.GetValue("Axis1Position").Value<float>(); // Stores the value of "Axis1Position" into a variable.
-            var axis2Pos = jObj.GetValue("Axis2Position").Value<float>(); // Stores the value of "Axis2Position" into a variable.
+            var trackerRotation = jObj.GetValueOrDefault("TrackerRotation", 0f);
+            var axis1Pos = jObj.GetValueOrDefault("Axis1Position", 0f);
+            var axis2Pos = jObj.GetValueOrDefault("Axis2Position", 0f);
 
             return new PeppercastManager(oscManager, trackerRotation, axis1Pos, axis2Pos); // Returns a "PeppercastManager" object using the previously stored variables. 
         }
